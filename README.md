@@ -3,7 +3,7 @@ This is the official repository of Satcommradar Laboratory - Nanosatellite Divis
 Main Objective of this project is to build a 3U Nanosatellite
 
 ## Member
-* Naufal alim harya putra
+* Naufal Alim Harya Putra
 * Muhammad Alif Putra Dafi 
 * Archie Fauzan Primanda 
 * Rafli Putra Agripamungkas 
