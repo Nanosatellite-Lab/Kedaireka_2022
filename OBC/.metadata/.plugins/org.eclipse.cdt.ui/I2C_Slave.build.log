@@ -1,10 +1,26 @@
-17:51:56 **** Incremental Build of configuration Debug for project I2C_Slave ****
+17:37:35 **** Incremental Build of configuration Debug for project I2C_Slave ****
 make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F413xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:75:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   75 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:75:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:25:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   24 | #include "string.h"
+  +++ |+#include <stdio.h>
+   25 | /* USER CODE END Includes */
+arm-none-eabi-gcc -o "I2C_Slave.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\I2C_Slave\STM32F413ZHTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="I2C_Slave.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: I2C_Slave.elf
+ 
 arm-none-eabi-size   I2C_Slave.elf 
+arm-none-eabi-objdump -h -S  I2C_Slave.elf  > "I2C_Slave.list"
    text	   data	    bss	    dec	    hex	filename
-  14572	     20	   3012	  17604	   44c4	I2C_Slave.elf
+  17300	    124	   3172	  20596	   5074	I2C_Slave.elf
 Finished building: default.size.stdout
  
+Finished building: I2C_Slave.list
+ 
 
-17:51:56 Build Finished. 0 errors, 0 warnings. (took 239ms)
+17:37:36 Build Finished. 0 errors, 2 warnings. (took 679ms)
 

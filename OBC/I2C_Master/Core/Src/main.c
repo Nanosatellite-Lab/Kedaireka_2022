@@ -61,10 +61,14 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t sendBuffer[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+uint8_t lenSendBuffer = sizeof(sendBuffer);
+
 void send_uart(char *string){
 	uint8_t len = strlen(string);
 	HAL_UART_Transmit(&huart3, (uint8_t*)string, len, 2000);
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -100,8 +104,10 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   send_uart("Sending Data via I2C...\r\n");
-    if(HAL_I2C_Master_Transmit(&hi2c1, 0x5A, "12345", 5, 30000) != HAL_OK){
-  	  send_uart("Data sent successfully!!\r\n");
+    if(HAL_I2C_Master_Transmit(&hi2c1, 0x5A, sendBuffer, lenSendBuffer, 30000) == HAL_OK){
+    	send_uart("Data sent successfully!!\r\n");
+    }else{
+    	send_uart("Data sent Failed!!\r\n");
     }
     send_uart("------------------\r\n\n");
   /* USER CODE END 2 */
