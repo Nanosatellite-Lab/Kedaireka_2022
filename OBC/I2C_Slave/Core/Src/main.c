@@ -61,9 +61,20 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+char strReceived[128] = "";
+uint8_t receivedBuffer[10]= {0};
+uint8_t lenReceivedBuffer = sizeof(receivedBuffer);
+
 void send_uart(char *string){
 	uint8_t len = strlen(string);
 	HAL_UART_Transmit(&huart3, (uint8_t*)string, len, 2000);
+}
+
+void convert_string(){
+	for(int i = 0; i<lenReceivedBuffer; i++){
+		sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+	}
+	send_uart(strReceived);
 }
 /* USER CODE END 0 */
 
@@ -99,15 +110,17 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  char buffer[4096];
     send_uart("Receiving Data via I2C...\r\n");
-      if(HAL_I2C_Slave_Receive(&hi2c1, buffer, sizeof(buffer), 50000) != HAL_OK){
+      if(HAL_I2C_Slave_Receive(&hi2c1, receivedBuffer, lenReceivedBuffer, 50000) == HAL_OK){
     	  send_uart("Data received successfully!!\r\n");
-    	  send_uart("Data : '");
-    	  send_uart(buffer);
-    	  send_uart("'");
-    	  send_uart("\r\n");
+      }else{
+    	  send_uart("Data Receive Failed!!\r\n");
       }
+
+      send_uart("Data : '");
+      convert_string();
+      send_uart("'");
+      send_uart("\r\n");
       send_uart("------------------\r\n\n");
   /* USER CODE END 2 */
 
