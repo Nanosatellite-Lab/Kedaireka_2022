@@ -14,7 +14,7 @@ void setup() {
   Serial.println("+++++++++++");
     
   LoRa.setPins(PA4, PC13, PA1);
-  while(!LoRa.begin(868E6)){
+  while(!LoRa.begin(923E6)){
     Serial.println("LoRa Initialization failed!");
   }
   Serial.println("LoRa Initialization succeeded!");
