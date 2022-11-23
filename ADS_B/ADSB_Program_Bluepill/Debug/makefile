@@ -56,6 +56,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 ADSB_Program_Bluepill.list \
 
+OBJCOPY_BIN += \
+ADSB_Program_Bluepill.bin \
+
 
 # All Target
 all: main-build
@@ -79,12 +82,17 @@ ADSB_Program_Bluepill.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL
 	@echo 'Finished building: $@'
 	@echo ' '
 
+ADSB_Program_Bluepill.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "ADSB_Program_Bluepill.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) ADSB_Program_Bluepill.elf ADSB_Program_Bluepill.list ADSB_Program_Bluepill.map default.size.stdout
+	-$(RM) ADSB_Program_Bluepill.bin ADSB_Program_Bluepill.elf ADSB_Program_Bluepill.list ADSB_Program_Bluepill.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
