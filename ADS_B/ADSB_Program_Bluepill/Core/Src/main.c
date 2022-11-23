@@ -128,18 +128,18 @@ int main(void)
   while (loop < 50)
   {
     /* USER CODE END WHILE */
-	  for(int i=0; i<256; i++)
-	  	  	  {
-	  	  		  buffer[i] = HAL_UART_Receive(&huart2, buffer, sizeof(buffer), 10);
-	  	  		  if(buffer[i] == '\r\n')
-	  	  			  break;
-	  	  	  }
-	  	  HAL_UART_Transmit(&huart1, buffer, sizeof(buffer), 10);
-	  	  f_printf(&fil, "Receiver: '%s' \n\r", buffer);
-
-	  	  bufclear();
-	  	  loop++;
     /* USER CODE BEGIN 3 */
+	  for(int i=0; i<256; i++)
+	  	  	  	  {
+	  	  	  		  buffer[i] = HAL_UART_Receive(&huart2, buffer, sizeof(buffer), 10);
+	  	  	  		  if(buffer[i] == '\r\n')
+	  	  	  			  break;
+	  	  	  	  }
+	  	  	  HAL_UART_Transmit(&huart1, buffer, sizeof(buffer), 10);
+	  	  	  f_printf(&fil, "Receiver: '%s' \n\r", buffer);
+
+	  	  	  bufclear();
+	  	  	  loop++;
   }
   bufclear();
 
