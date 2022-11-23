@@ -1899,12 +1899,13 @@ int main(void)
  8000bc4:	e027      	b.n	8000c16 <main+0xaa>
   {
     /* USER CODE END WHILE */
+    /* USER CODE BEGIN 3 */
 	  for(int i=0; i<256; i++)
  8000bc6:	2300      	movs	r3, #0
  8000bc8:	603b      	str	r3, [r7, #0]
  8000bca:	e010      	b.n	8000bee <main+0x82>
-	  	  	  {
-	  	  		  buffer[i] = HAL_UART_Receive(&huart2, buffer, sizeof(buffer), 10);
+	  	  	  	  {
+	  	  	  		  buffer[i] = HAL_UART_Receive(&huart2, buffer, sizeof(buffer), 10);
  8000bcc:	230a      	movs	r3, #10
  8000bce:	f44f 6280 	mov.w	r2, #1024	; 0x400
  8000bd2:	4927      	ldr	r1, [pc, #156]	; (8000c70 <main+0x104>)
@@ -1924,24 +1925,24 @@ int main(void)
  8000bee:	683b      	ldr	r3, [r7, #0]
  8000bf0:	2bff      	cmp	r3, #255	; 0xff
  8000bf2:	ddeb      	ble.n	8000bcc <main+0x60>
-	  	  		  if(buffer[i] == '\r\n')
-	  	  			  break;
-	  	  	  }
-	  	  HAL_UART_Transmit(&huart1, buffer, sizeof(buffer), 10);
+	  	  	  		  if(buffer[i] == '\r\n')
+	  	  	  			  break;
+	  	  	  	  }
+	  	  	  HAL_UART_Transmit(&huart1, buffer, sizeof(buffer), 10);
  8000bf4:	230a      	movs	r3, #10
  8000bf6:	f44f 6280 	mov.w	r2, #1024	; 0x400
  8000bfa:	491d      	ldr	r1, [pc, #116]	; (8000c70 <main+0x104>)
  8000bfc:	481e      	ldr	r0, [pc, #120]	; (8000c78 <main+0x10c>)
  8000bfe:	f001 fe62 	bl	80028c6 <HAL_UART_Transmit>
-	  	  f_printf(&fil, "Receiver: '%s' \n\r", buffer);
+	  	  	  f_printf(&fil, "Receiver: '%s' \n\r", buffer);
  8000c02:	4a1b      	ldr	r2, [pc, #108]	; (8000c70 <main+0x104>)
  8000c04:	491d      	ldr	r1, [pc, #116]	; (8000c7c <main+0x110>)
  8000c06:	4819      	ldr	r0, [pc, #100]	; (8000c6c <main+0x100>)
  8000c08:	f005 fc12 	bl	8006430 <f_printf>
 
-	  	  bufclear();
+	  	  	  bufclear();
  8000c0c:	f7ff ff94 	bl	8000b38 <bufclear>
-	  	  loop++;
+	  	  	  loop++;
  8000c10:	687b      	ldr	r3, [r7, #4]
  8000c12:	3301      	adds	r3, #1
  8000c14:	607b      	str	r3, [r7, #4]
@@ -1949,7 +1950,6 @@ int main(void)
  8000c16:	687b      	ldr	r3, [r7, #4]
  8000c18:	2b31      	cmp	r3, #49	; 0x31
  8000c1a:	ddd4      	ble.n	8000bc6 <main+0x5a>
-    /* USER CODE BEGIN 3 */
   }
   bufclear();
  8000c1c:	f7ff ff8c 	bl	8000b38 <bufclear>
