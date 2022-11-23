@@ -56,6 +56,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 ADSB_Program_Bluepill.list \
 
+OBJCOPY_BIN += \
+ADSB_Program_Bluepill.bin \
+
 
 # All Target
 all: main-build
@@ -64,8 +67,8 @@ all: main-build
 main-build: ADSB_Program_Bluepill.elf secondary-outputs
 
 # Tool invocations
-ADSB_Program_Bluepill.elf ADSB_Program_Bluepill.map: $(OBJS) $(USER_OBJS) C:\Users\Alif\Documents\STM32CubeIDE\ADSB_Receiver\ADSB_Program_Bluepill\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ADSB_Program_Bluepill.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Alif\Documents\STM32CubeIDE\ADSB_Receiver\ADSB_Program_Bluepill\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADSB_Program_Bluepill.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ADSB_Program_Bluepill.elf ADSB_Program_Bluepill.map: $(OBJS) $(USER_OBJS) E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\ADS_B\ADSB_Program_Bluepill\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ADSB_Program_Bluepill.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\ADS_B\ADSB_Program_Bluepill\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADSB_Program_Bluepill.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -79,12 +82,17 @@ ADSB_Program_Bluepill.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL
 	@echo 'Finished building: $@'
 	@echo ' '
 
+ADSB_Program_Bluepill.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "ADSB_Program_Bluepill.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) ADSB_Program_Bluepill.elf ADSB_Program_Bluepill.list ADSB_Program_Bluepill.map default.size.stdout
+	-$(RM) ADSB_Program_Bluepill.bin ADSB_Program_Bluepill.elf ADSB_Program_Bluepill.list ADSB_Program_Bluepill.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

@@ -1,0 +1,19 @@
+07:49:21 **** Incremental Build of configuration Debug for project ADSB_Program_Bluepill ****
+make -j16 all 
+arm-none-eabi-gcc -o "ADSB_Program_Bluepill.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\ADS_B\ADSB_Program_Bluepill\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADSB_Program_Bluepill.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADSB_Program_Bluepill.elf
+ 
+arm-none-eabi-size   ADSB_Program_Bluepill.elf 
+arm-none-eabi-objdump -h -S  ADSB_Program_Bluepill.elf  > "ADSB_Program_Bluepill.list"
+   text	   data	    bss	    dec	    hex	filename
+  28940	     44	  11676	  40660	   9ed4	ADSB_Program_Bluepill.elf
+arm-none-eabi-objcopy  -O binary  ADSB_Program_Bluepill.elf  "ADSB_Program_Bluepill.bin"
+Finished building: default.size.stdout
+ 
+Finished building: ADSB_Program_Bluepill.bin
+ 
+Finished building: ADSB_Program_Bluepill.list
+ 
+
+07:49:22 Build Finished. 0 errors, 0 warnings. (took 560ms)
+
