@@ -1,7 +1,0 @@
-12:12:01 **** Incremental Build of configuration Debug for project ADSB_Program_Bluepill ****
-make -j16 all 
-arm-none-eabi-size   ADSB_Program_Bluepill.elf 
-   text	   data	    bss	    dec	    hex	filename
-  28940	     44	  11676	  40660	   9ed4	ADSB_Program_Bluepill.elf
-Finished building: default.size.stdout
- 

@@ -1,0 +1,10 @@
+16:18:41 **** Incremental Build of configuration Debug for project ADSB_Program ****
+make -j16 all 
+arm-none-eabi-size   ADSB_Program.elf 
+   text	   data	    bss	    dec	    hex	filename
+  28820	     44	  11676	  40540	   9e5c	ADSB_Program.elf
+Finished building: default.size.stdout
+ 
+
+16:18:41 Build Finished. 0 errors, 0 warnings. (took 243ms)
+
