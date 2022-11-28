@@ -1,0 +1,35 @@
+16:27:10 **** Incremental Build of configuration Debug for project Nucleo-F413ZH ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F413xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'send_uart':
+../Core/Src/main.c:73:16: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+   73 |  uint8_t len = strlen(string);
+      |                ^~~~~~
+../Core/Src/main.c:73:16: warning: incompatible implicit declaration of built-in function 'strlen'
+../Core/Src/main.c:21:1: note: include '<string.h>' or provide a declaration of 'strlen'
+   20 | #include "main.h"
+  +++ |+#include <string.h>
+   21 | 
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:79:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   79 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:79:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:21:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   20 | #include "main.h"
+  +++ |+#include <stdio.h>
+   21 | 
+arm-none-eabi-gcc -o "Nucleo-F413ZH.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\Nucleo-F413ZH\STM32F413ZHTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-F413ZH.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-F413ZH.elf
+ 
+arm-none-eabi-size   Nucleo-F413ZH.elf 
+arm-none-eabi-objdump -h -S  Nucleo-F413ZH.elf  > "Nucleo-F413ZH.list"
+   text	   data	    bss	    dec	    hex	filename
+  17300	    124	   3172	  20596	   5074	Nucleo-F413ZH.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-F413ZH.list
+ 
+
+16:27:10 Build Finished. 0 errors, 4 warnings. (took 678ms)
+
