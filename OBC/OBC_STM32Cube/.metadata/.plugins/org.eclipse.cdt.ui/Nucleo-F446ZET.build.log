@@ -1,0 +1,30 @@
+14:37:44 **** Incremental Build of configuration Debug for project Nucleo-F446ZET ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:111:65: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' makes pointer from integer without a cast [-Wint-conversion]
+  111 |       if(HAL_I2C_Master_Transmit(&hi2c1, adsbAddress, sendBuffer[1], 1, 30000) == HAL_OK){
+      |                                                       ~~~~~~~~~~^~~
+      |                                                                 |
+      |                                                                 uint8_t {aka unsigned char}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:359,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:566:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t' {aka 'unsigned char'}
+  566 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "Nucleo-F446ZET.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\Nucleo-F446ZET\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-F446ZET.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-F446ZET.elf
+ 
+arm-none-eabi-size   Nucleo-F446ZET.elf 
+arm-none-eabi-objdump -h -S  Nucleo-F446ZET.elf  > "Nucleo-F446ZET.list"
+   text	   data	    bss	    dec	    hex	filename
+  15932	     36	   3012	  18980	   4a24	Nucleo-F446ZET.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-F446ZET.list
+ 
+
+14:37:45 Build Finished. 0 errors, 1 warnings. (took 741ms)
+
