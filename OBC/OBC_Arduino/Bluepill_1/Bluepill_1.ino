@@ -1,47 +1,60 @@
 // Include Arduino Wire library for I2C
 #include <Wire.h>
- 
+
 // Define Slave I2C Address
-#define SLAVE_ADDR 9
- 
+#define SLAVE_ADDR 97
+
 // Define Slave answer size
 #define ANSWERSIZE 5
- 
-int msg[10] = {1,2,3,4,5,6,7,8,9,10};
+
+// Define string with response to Master
+String answer = "Hello";
+
 void setup() {
- 
-  // Initialize I2C communications as Master
-  Wire.begin();
+
+  // Initialize I2C communications as Slave
+  Wire.begin(SLAVE_ADDR);
   
-  // Setup serial monitor
+  // Function to run when data requested from master
+  Wire.onRequest(requestEvent); 
+  
+  // Function to run when data received from master
+  Wire.onReceive(receiveEvent);
+  
+  // Setup Serial Monitor 
   Serial.begin(115200);
-  Serial.println("I2C Master Demonstration");
+  Serial.println("I2C Slave Demonstration");
 }
- 
-void loop() {
-  delay(50);
-  Serial.println("Write data to slave");
-  
-  // Write a charatre to the Slave
-  Wire.beginTransmission(SLAVE_ADDR);
-  for(int i = 0; i<10; i++){
-    Wire.write(msg[i]);
+
+void receiveEvent(int howMany) {
+// Print to Serial Monitor
+  Serial.println("Receive event");
+  // Read while data received
+  while (0 < Wire.available()) {
+    byte x = Wire.read();
+      Serial.println(x);
   }
-  Wire.endTransmission();
-    
-  // Serial.println("Receive data");
-  // 
-  // // Read response from Slave
-  // // Read back 5 characters
-  // Wire.requestFrom(SLAVE_ADDR,ANSWERSIZE);
+}
+
+void requestEvent() {
+
+  // Setup byte variable in the correct size
+  byte response[ANSWERSIZE];
   
-  // // Add characters to string
-  // String response = "";
-  // while (Wire.available()) {
-  //     char b = Wire.read();
-  //     response += b;
-  // } 
+  // Format answer as array
+  for (byte i=0;i<ANSWERSIZE;i++) {
+    response[i] = (byte)answer.charAt(i);
+  }
   
-  // // Print to Serial Monitor
-  // Serial.println(response);
+  // Send response back to Master
+  Wire.write(response,sizeof(response));
+  
+  // Print to Serial Monitor
+  Serial.println("Request event");
+}
+
+void loop() {
+
+  // Time delay in loop
+  delay(50);
 }

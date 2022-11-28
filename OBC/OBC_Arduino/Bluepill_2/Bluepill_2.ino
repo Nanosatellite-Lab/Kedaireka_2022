@@ -2,7 +2,7 @@
 #include <Wire.h>
 
 // Define Slave I2C Address
-#define SLAVE_ADDR 9
+#define SLAVE_ADDR 95
 
 // Define Slave answer size
 #define ANSWERSIZE 5
@@ -27,15 +27,13 @@ void setup() {
 }
 
 void receiveEvent(int howMany) {
-
+// Print to Serial Monitor
+  Serial.println("Receive event");
   // Read while data received
   while (0 < Wire.available()) {
     byte x = Wire.read();
       Serial.println(x);
   }
-  
-  // Print to Serial Monitor
-  Serial.println("Receive event");
 }
 
 void requestEvent() {

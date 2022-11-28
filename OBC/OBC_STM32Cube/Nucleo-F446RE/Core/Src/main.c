@@ -45,11 +45,11 @@ I2C_HandleTypeDef hi2c1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-uint8_t obcAddress = 0x87;
-uint8_t ttcAddress = 0x90;
-uint8_t epsAddress = 0x93;
-uint8_t adsbAddress = 0x95;
-uint8_t loraAddress = 0x97;
+uint8_t obcAddress = 87;
+uint8_t ttcAddress = 90;
+uint8_t epsAddress = 93;
+uint8_t adsbAddress = 95;
+uint8_t loraAddress = 97;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -202,7 +202,7 @@ static void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0x90;
+  hi2c1.Init.OwnAddress1 = 90;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;

@@ -1,4 +1,4 @@
-13:40:12 **** Incremental Build of configuration Debug for project Nucleo-F446RE ****
+16:26:55 **** Incremental Build of configuration Debug for project Nucleo-F446RE ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'convert_string':
@@ -22,5 +22,5 @@ Finished building: default.size.stdout
 Finished building: Nucleo-F446RE.list
  
 
-13:40:12 Build Finished. 0 errors, 2 warnings. (took 700ms)
+16:26:56 Build Finished. 0 errors, 2 warnings. (took 615ms)
 

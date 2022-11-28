@@ -47,11 +47,11 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
-uint8_t obcAddress = 0x87;
-uint8_t ttcAddress = 0x90;
-uint8_t epsAddress = 0x93;
-uint8_t adsbAddress = 0x95;
-uint8_t loraAddress = 0x97;
+uint8_t obcAddress = 87;
+uint8_t ttcAddress = 90;
+uint8_t epsAddress = 93;
+uint8_t adsbAddress = 95;
+uint8_t loraAddress = 97;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -67,6 +67,9 @@ static void MX_I2C1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 uint8_t sendBuffer[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+uint8_t sendBuffer2[10] = {2,3,4,5,6,7,8,9,10,11};
+uint8_t sendBuffer3[10] = {3,4,5,6,7,8,9,10,11,12};
+uint8_t sendBuffer4[10] = {4,5,6,7,8,9,10,11,12,13};
 uint8_t lenSendBuffer = sizeof(sendBuffer);
 
 void send_uart(char *string){
@@ -108,12 +111,36 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   send_uart("Sending Data via I2C...\r\n");
-      if(HAL_I2C_Master_Transmit(&hi2c1, adsbAddress, sendBuffer[1], 1, 30000) == HAL_OK){
+      if(HAL_I2C_Master_Transmit(&hi2c1, 90, sendBuffer, 10, 30000) == HAL_OK){
       	send_uart("Data sent successfully!!\r\n");
       }else{
       	send_uart("Data sent Failed!!\r\n");
       }
       send_uart("------------------\r\n\n");
+
+      send_uart("Sending Data via I2C...\r\n");
+            if(HAL_I2C_Master_Transmit(&hi2c1, 93, sendBuffer2, 10, 30000) == HAL_OK){
+            	send_uart("Data sent successfully!!\r\n");
+            }else{
+            	send_uart("Data sent Failed!!\r\n");
+            }
+            send_uart("------------------\r\n\n");
+
+            send_uart("Sending Data via I2C...\r\n");
+                  if(HAL_I2C_Master_Transmit(&hi2c1, 95<<1, sendBuffer3, 10, 30000) == HAL_OK){
+                  	send_uart("Data sent successfully!!\r\n");
+                  }else{
+                  	send_uart("Data sent Failed!!\r\n");
+                  }
+                  send_uart("------------------\r\n\n");
+
+                  send_uart("Sending Data via I2C...\r\n");
+                        if(HAL_I2C_Master_Transmit(&hi2c1, 97<<1, sendBuffer4, 10, 30000) == HAL_OK){
+                        	send_uart("Data sent successfully!!\r\n");
+                        }else{
+                        	send_uart("Data sent Failed!!\r\n");
+                        }
+                        send_uart("------------------\r\n\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -191,7 +218,7 @@ static void MX_I2C1_Init(void)
   hi2c1.Instance = I2C1;
   hi2c1.Init.ClockSpeed = 100000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
-  hi2c1.Init.OwnAddress1 = 0x87;
+  hi2c1.Init.OwnAddress1 = 87;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;

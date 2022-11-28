@@ -753,9 +753,9 @@ static void MX_I2C1_Init(void)
  80007c0:	4b0f      	ldr	r3, [pc, #60]	; (8000800 <MX_I2C1_Init+0x50>)
  80007c2:	2200      	movs	r2, #0
  80007c4:	609a      	str	r2, [r3, #8]
-  hi2c1.Init.OwnAddress1 = 0x90;
+  hi2c1.Init.OwnAddress1 = 90;
  80007c6:	4b0e      	ldr	r3, [pc, #56]	; (8000800 <MX_I2C1_Init+0x50>)
- 80007c8:	2290      	movs	r2, #144	; 0x90
+ 80007c8:	225a      	movs	r2, #90	; 0x5a
  80007ca:	60da      	str	r2, [r3, #12]
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
  80007cc:	4b0c      	ldr	r3, [pc, #48]	; (8000800 <MX_I2C1_Init+0x50>)
