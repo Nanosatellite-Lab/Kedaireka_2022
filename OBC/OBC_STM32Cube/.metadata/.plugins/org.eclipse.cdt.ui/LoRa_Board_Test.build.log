@@ -1,10 +1,10 @@
-11:31:27 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+14:16:05 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
 make -j16 all 
 arm-none-eabi-size   LoRa_Board_Test.elf 
    text	   data	    bss	    dec	    hex	filename
-  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+   7372	     20	   1724	   9116	   239c	LoRa_Board_Test.elf
 Finished building: default.size.stdout
  
 
-11:31:27 Build Finished. 0 errors, 0 warnings. (took 157ms)
+14:16:05 Build Finished. 0 errors, 0 warnings. (took 163ms)
 

@@ -123,3 +123,283 @@ Finished building: default.size.stdout
  
 Finished building: OBC_Board_Test.list
  
+13:53:10 **** Incremental Build of configuration Debug for project OBC_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "OBC_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\OBC_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="OBC_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: OBC_Board_Test.elf
+ 
+arm-none-eabi-size   OBC_Board_Test.elf 
+arm-none-eabi-objdump -h -S  OBC_Board_Test.elf  > "OBC_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+   8380	     48	   1720	  10148	   27a4	OBC_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: OBC_Board_Test.list
+ 
+13:55:19 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:76:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   76 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:76:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "string.h"
+  +++ |+#include <stdio.h>
+   22 | /* Private includes ----------------------------------------------------------*/
+arm-none-eabi-gcc -o "LoRa_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\LoRa_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LoRa_Board_Test.elf
+ 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+arm-none-eabi-objdump -h -S  LoRa_Board_Test.elf  > "LoRa_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: LoRa_Board_Test.list
+ 
+13:56:37 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+13:56:58 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+13:57:35 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+13:58:23 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+13:59:32 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:00:42 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:76:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   76 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:76:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "string.h"
+  +++ |+#include <stdio.h>
+   22 | /* Private includes ----------------------------------------------------------*/
+arm-none-eabi-gcc -o "LoRa_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\LoRa_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LoRa_Board_Test.elf
+ 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+arm-none-eabi-objdump -h -S  LoRa_Board_Test.elf  > "LoRa_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  10408	    124	   1884	  12416	   3080	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: LoRa_Board_Test.list
+ 
+14:01:08 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10408	    124	   1884	  12416	   3080	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:02:06 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:76:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   76 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:76:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "string.h"
+  +++ |+#include <stdio.h>
+   22 | /* Private includes ----------------------------------------------------------*/
+arm-none-eabi-gcc -o "LoRa_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\LoRa_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LoRa_Board_Test.elf
+ 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+arm-none-eabi-objdump -h -S  LoRa_Board_Test.elf  > "LoRa_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: LoRa_Board_Test.list
+ 
+14:03:20 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:03:54 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:04:31 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10448	    124	   1884	  12456	   30a8	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:05:47 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:76:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   76 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:76:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "string.h"
+  +++ |+#include <stdio.h>
+   22 | /* Private includes ----------------------------------------------------------*/
+arm-none-eabi-gcc -o "LoRa_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\LoRa_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LoRa_Board_Test.elf
+ 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+arm-none-eabi-objdump -h -S  LoRa_Board_Test.elf  > "LoRa_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+   7180	     24	   1736	   8940	   22ec	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: LoRa_Board_Test.list
+ 
+14:07:24 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7180	     24	   1736	   8940	   22ec	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:08:07 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:71:19: error: 'lenReceivedBuffer' undeclared (first use in this function)
+   71 |  for(int i = 0; i<lenReceivedBuffer; i++){
+      |                   ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:71:19: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:72:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   72 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:72:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "string.h"
+  +++ |+#include <stdio.h>
+   22 | /* Private includes ----------------------------------------------------------*/
+../Core/Src/main.c:72:12: error: 'strReceived' undeclared (first use in this function)
+   72 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |            ^~~~~~~~~~~
+../Core/Src/main.c:72:34: error: 'receivedBuffer' undeclared (first use in this function)
+   72 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |                                  ^~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:85:7: warning: unused variable 'strReceived' [-Wunused-variable]
+   85 |  char strReceived[128] = "";
+      |       ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:08:23 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:86:4: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   86 |    sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |    ^~~~~~~
+../Core/Src/main.c:86:4: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "string.h"
+  +++ |+#include <stdio.h>
+   22 | /* Private includes ----------------------------------------------------------*/
+At top level:
+../Core/Src/main.c:84:7: warning: 'convert_string' defined but not used [-Wunused-function]
+   84 |  void convert_string(){
+      |       ^~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "LoRa_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\LoRa_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LoRa_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LoRa_Board_Test.elf
+ 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+arm-none-eabi-objdump -h -S  LoRa_Board_Test.elf  > "LoRa_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+   7372	     20	   1724	   9116	   239c	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: LoRa_Board_Test.list
+ 
+14:09:22 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7372	     20	   1724	   9116	   239c	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:10:10 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7372	     20	   1724	   9116	   239c	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:11:03 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7372	     20	   1724	   9116	   239c	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:13:51 **** Incremental Build of configuration Debug for project OBC_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "OBC_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\OBC_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="OBC_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: OBC_Board_Test.elf
+ 
+arm-none-eabi-size   OBC_Board_Test.elf 
+arm-none-eabi-objdump -h -S  OBC_Board_Test.elf  > "OBC_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+   8296	     36	   1724	  10056	   2748	OBC_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: OBC_Board_Test.list
+ 
+14:15:05 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7372	     20	   1724	   9116	   239c	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 
+14:16:05 **** Incremental Build of configuration Debug for project LoRa_Board_Test ****
+make -j16 all 
+arm-none-eabi-size   LoRa_Board_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7372	     20	   1724	   9116	   239c	LoRa_Board_Test.elf
+Finished building: default.size.stdout
+ 

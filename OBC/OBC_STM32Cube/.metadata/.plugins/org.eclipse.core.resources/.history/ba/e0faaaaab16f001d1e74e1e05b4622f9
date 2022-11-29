@@ -110,7 +110,19 @@ int main(void)
   MX_I2C1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  send_uart("Receiving Data via I2C...\r\n");
 
+  if(HAL_I2C_Slave_Receive(&hi2c1, receivedBuffer, lenReceivedBuffer, 50000) == HAL_OK){
+	  send_uart("Data received successfully!!\r\n");
+  }else{
+	  send_uart("Data Receive Failed!!\r\n");
+  }
+
+    send_uart("Data : '");
+    convert_string();
+    send_uart("'");
+    send_uart("\r\n");
+    send_uart("------------------\r\n\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -120,19 +132,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  send_uart("Receiving Data via I2C...\r\n");
-
-	    if(HAL_I2C_Slave_Receive(&hi2c1, receivedBuffer, lenReceivedBuffer, 50000) == HAL_OK){
-	  	  send_uart("Data received successfully!!\r\n");
-	    }else{
-	  	  send_uart("Data Receive Failed!!\r\n");
-	    }
-
-	      send_uart("Data : '");
-	      convert_string();
-	      send_uart("'");
-	      send_uart("\r\n");
-	      send_uart("------------------\r\n\n");
   }
   /* USER CODE END 3 */
 }
