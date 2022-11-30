@@ -1,17 +1,10 @@
-16:28:32 **** Incremental Build of configuration Debug for project Nucleo-F446ZET ****
+15:13:54 **** Incremental Build of configuration Debug for project Nucleo-F446ZET ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Nucleo-F446ZET.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\Nucleo-F446ZET\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-F446ZET.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Nucleo-F446ZET.elf
- 
 arm-none-eabi-size   Nucleo-F446ZET.elf 
-arm-none-eabi-objdump -h -S  Nucleo-F446ZET.elf  > "Nucleo-F446ZET.list"
    text	   data	    bss	    dec	    hex	filename
-  16080	     68	   3012	  19160	   4ad8	Nucleo-F446ZET.elf
+  14504	     24	   3024	  17552	   4490	Nucleo-F446ZET.elf
 Finished building: default.size.stdout
  
-Finished building: Nucleo-F446ZET.list
- 
 
-16:28:33 Build Finished. 0 errors, 0 warnings. (took 671ms)
+15:13:55 Build Finished. 0 errors, 0 warnings. (took 243ms)
 

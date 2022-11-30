@@ -1,11 +1,11 @@
-16:26:55 **** Incremental Build of configuration Debug for project Nucleo-F446RE ****
+15:00:38 **** Incremental Build of configuration Debug for project Nucleo-F446RE ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'convert_string':
-../Core/Src/main.c:77:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-   77 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+../Core/Src/main.c:79:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   79 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
       |   ^~~~~~~
-../Core/Src/main.c:77:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:79:3: warning: incompatible implicit declaration of built-in function 'sprintf'
 ../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
    21 | #include "string.h"
   +++ |+#include <stdio.h>
@@ -16,11 +16,11 @@ Finished building target: Nucleo-F446RE.elf
 arm-none-eabi-size   Nucleo-F446RE.elf 
 arm-none-eabi-objdump -h -S  Nucleo-F446RE.elf  > "Nucleo-F446RE.list"
    text	   data	    bss	    dec	    hex	filename
-  13892	    124	   1884	  15900	   3e1c	Nucleo-F446RE.elf
+  10964	     24	   1720	  12708	   31a4	Nucleo-F446RE.elf
 Finished building: default.size.stdout
  
 Finished building: Nucleo-F446RE.list
  
 
-16:26:56 Build Finished. 0 errors, 2 warnings. (took 615ms)
+15:00:39 Build Finished. 0 errors, 2 warnings. (took 677ms)
 

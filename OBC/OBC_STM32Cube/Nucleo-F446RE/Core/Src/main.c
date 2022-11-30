@@ -64,6 +64,8 @@ static void MX_I2C1_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 char strReceived[128] = "";
+//uint8_t sendBuffer[10] = {1,2,3,4,5,6,7,8,9,10};
+uint8_t sendBuffer[1] = {90};
 uint8_t receivedBuffer[10]= {0};
 uint8_t lenReceivedBuffer = sizeof(receivedBuffer);
 
@@ -111,17 +113,17 @@ int main(void)
   MX_USART2_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  send_uart("Receiving Data via I2C...\r\n");
-        if(HAL_I2C_Slave_Receive(&hi2c1, receivedBuffer, lenReceivedBuffer, 50000) == HAL_OK){
-      	  send_uart("Data received successfully!!\r\n");
+//  send_uart("Receiving Data via I2C...\r\n");
+        if(HAL_I2C_Slave_Transmit(&hi2c1, sendBuffer, 1, HAL_MAX_DELAY) == HAL_OK){
+      	  send_uart("Data send successfully!!\r\n");
         }else{
-      	  send_uart("Data Receive Failed!!\r\n");
+      	  send_uart("Data send Failed!!\r\n");
         }
-
-        send_uart("Data : '");
-        convert_string();
-        send_uart("'");
-        send_uart("\r\n");
+//
+//        send_uart("Data : '");
+//        convert_string();
+//        send_uart("'");
+//        send_uart("\r\n");
         send_uart("------------------\r\n\n");
   /* USER CODE END 2 */
 

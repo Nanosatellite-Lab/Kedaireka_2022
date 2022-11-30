@@ -66,16 +66,51 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t sendBuffer[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-uint8_t sendBuffer2[10] = {2,3,4,5,6,7,8,9,10,11};
-uint8_t sendBuffer3[10] = {3,4,5,6,7,8,9,10,11,12};
-uint8_t sendBuffer4[10] = {4,5,6,7,8,9,10,11,12,13};
+uint8_t sendBuffer[1] = {0};
+uint8_t receiveBuffer[1] = {0};
 uint8_t lenSendBuffer = sizeof(sendBuffer);
+uint8_t lenReceiveBuffer = sizeof(receiveBuffer);
 
 void send_uart(char *string){
 	uint8_t len = strlen(string);
 	HAL_UART_Transmit(&huart3, (uint8_t*)string, len, 2000);
 }
+
+void convert_string(){
+	char strReceived[128] = "";
+	for(int i = 0; i<lenReceiveBuffer; i++){
+		sprintf(&strReceived[i], "%d", receiveBuffer[i]);
+	}
+	send_uart(strReceived);
+}
+
+void clearBuf(){
+	for(int i = 0; i<lenReceiveBuffer; i++){
+		receiveBuffer[i] = 0;
+	}
+}
+
+//void i2c_TTC(){
+//	send_uart("Send data to TTC....");
+//	if(HAL_I2C_Master_Transmit(&hi2c1, ttcAddress, sendBuffer, lenSendBuffer, HAL_MAX_DELAY) == HAL_OK){
+//		send_uart("Data sent to TTC successfully!!....");
+//		send_uart("Waiting ACK...");
+//
+//		if(HAL_I2C_Master_Receive(&hi2c1, ttcAddress, receiveBuffer, lenReceiveBuffer, HAL_MAX_DELAY) == HAL_OK){
+//				send_uart("ACK : ");
+//				convert_string();
+//				send_uart("---------------\r\n");
+//		}else{
+//			send_uart("NACK : I2C Receive Failed\r\n");
+//			send_uart("---------------\r\n");
+//		}
+//	}else{
+//		send_uart("Data sent Failed!!\r\n");
+//		send_uart("---------------\r\n");
+//	}
+//
+//	clearBuf();
+//}
 /* USER CODE END 0 */
 
 /**
@@ -110,37 +145,7 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  send_uart("Sending Data via I2C...\r\n");
-      if(HAL_I2C_Master_Transmit(&hi2c1, 90, sendBuffer, 10, 30000) == HAL_OK){
-      	send_uart("Data sent successfully!!\r\n");
-      }else{
-      	send_uart("Data sent Failed!!\r\n");
-      }
-      send_uart("------------------\r\n\n");
 
-      send_uart("Sending Data via I2C...\r\n");
-            if(HAL_I2C_Master_Transmit(&hi2c1, 93, sendBuffer2, 10, 30000) == HAL_OK){
-            	send_uart("Data sent successfully!!\r\n");
-            }else{
-            	send_uart("Data sent Failed!!\r\n");
-            }
-            send_uart("------------------\r\n\n");
-
-            send_uart("Sending Data via I2C...\r\n");
-                  if(HAL_I2C_Master_Transmit(&hi2c1, 95<<1, sendBuffer3, 10, 30000) == HAL_OK){
-                  	send_uart("Data sent successfully!!\r\n");
-                  }else{
-                  	send_uart("Data sent Failed!!\r\n");
-                  }
-                  send_uart("------------------\r\n\n");
-
-                  send_uart("Sending Data via I2C...\r\n");
-                        if(HAL_I2C_Master_Transmit(&hi2c1, 97<<1, sendBuffer4, 10, 30000) == HAL_OK){
-                        	send_uart("Data sent successfully!!\r\n");
-                        }else{
-                        	send_uart("Data sent Failed!!\r\n");
-                        }
-                        send_uart("------------------\r\n\n");
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -150,6 +155,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  HAL_UART_Receive(&huart3, receiveBuffer, lenReceiveBuffer, HAL_MAX_DELAY);
+	  HAL_UART_Transmit(&huart3, sendBuffer, lenSendBuffer, HAL_MAX_DELAY);
   }
   /* USER CODE END 3 */
 }
