@@ -1,0 +1,26 @@
+15:00:38 **** Incremental Build of configuration Debug for project Nucleo-F446RE ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'convert_string':
+../Core/Src/main.c:79:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   79 |   sprintf(&strReceived[i], "%d", receivedBuffer[i]);
+      |   ^~~~~~~
+../Core/Src/main.c:79:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/main.c:22:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   21 | #include "string.h"
+  +++ |+#include <stdio.h>
+   22 | 
+arm-none-eabi-gcc -o "Nucleo-F446RE.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\Nucleo-F446RE\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Nucleo-F446RE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Nucleo-F446RE.elf
+ 
+arm-none-eabi-size   Nucleo-F446RE.elf 
+arm-none-eabi-objdump -h -S  Nucleo-F446RE.elf  > "Nucleo-F446RE.list"
+   text	   data	    bss	    dec	    hex	filename
+  10964	     24	   1720	  12708	   31a4	Nucleo-F446RE.elf
+Finished building: default.size.stdout
+ 
+Finished building: Nucleo-F446RE.list
+ 
+
+15:00:39 Build Finished. 0 errors, 2 warnings. (took 677ms)
+
