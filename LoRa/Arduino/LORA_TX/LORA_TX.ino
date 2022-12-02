@@ -53,6 +53,7 @@ void setup() {
     Serial.println("LoRa Initialization failed!");
   }
   Serial.println("LoRa Initialization succeeded!");
+  LoRa.setSignalBandwidth(250E3);
 
 }
 
