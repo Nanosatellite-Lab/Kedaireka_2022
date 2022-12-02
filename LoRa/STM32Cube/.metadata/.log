@@ -13,3 +13,42 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-11-24 16:19:24.763
 !MESSAGE Started RMI Server, listening on port 41338
+!SESSION 2022-11-24 18:09:02.049 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_ID
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-11-24 18:09:12.720
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-11-24 18:09:12.771
+!MESSAGE Log4j initialized with config file E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\LoRa\STM32Cube\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-11-24 18:09:15.050
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-11-24 18:12:49.648
+!MESSAGE Indexed 'LoRa-TX' (17 sources, 78 headers) in 1.75 sec: 3,642 declarations; 13,147 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.012%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-11-24 18:14:11.338
+!MESSAGE Indexed 'LoRa-TX' (17 sources, 78 headers) in 0.968 sec: 3,642 declarations; 13,147 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.012%)
+!SESSION 2022-11-28 08:31:14.947 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_ID
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\LoRa\STM32Cube
+
+!ENTRY org.eclipse.core.resources 2 10035 2022-11-28 08:31:16.150
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-11-28 08:31:18.404
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-11-28 08:31:18.457
+!MESSAGE Log4j initialized with config file E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\LoRa\STM32Cube\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-11-28 08:31:23.546
+!MESSAGE Started RMI Server, listening on port 41337

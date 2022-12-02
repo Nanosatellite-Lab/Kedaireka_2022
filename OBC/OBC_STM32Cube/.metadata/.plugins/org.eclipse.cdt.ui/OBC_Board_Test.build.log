@@ -1,0 +1,17 @@
+14:13:51 **** Incremental Build of configuration Debug for project OBC_Board_Test ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "OBC_Board_Test.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Kampus\NanoSat\Riset\Kedaireka\Code\Kedaireka_2022\OBC\OBC_STM32Cube\OBC_Board_Test\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="OBC_Board_Test.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: OBC_Board_Test.elf
+ 
+arm-none-eabi-size   OBC_Board_Test.elf 
+arm-none-eabi-objdump -h -S  OBC_Board_Test.elf  > "OBC_Board_Test.list"
+   text	   data	    bss	    dec	    hex	filename
+   8296	     36	   1724	  10056	   2748	OBC_Board_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: OBC_Board_Test.list
+ 
+
+14:13:52 Build Finished. 0 errors, 0 warnings. (took 471ms)
+
